@@ -14,6 +14,7 @@
     <!-- Third Party -->
     <link rel="stylesheet" href="./lib/css/aos.css">
     <link rel="stylesheet" href="./lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/fontawesome-free-5.12.0-web/css/all.css">
 
 
     <!-- Favicon -->
@@ -49,11 +50,13 @@
                 </div>
 
                 <!-- login form -->
-                <form id="login">
-                    <div class="form-group">
+                <form id="login" method="POST">
+                    <div class="form-group flex-input">
+                        <i class="fa fa-at text-muted"></i>
                         <input type="email" name="email" id="email" placeholder="Email" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group flex-input">
+                        <fa class="fa fa-lock text-muted"></fa>
                         <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
                     <div class="form-group mt-4">
