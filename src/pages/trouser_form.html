@@ -52,6 +52,9 @@
                     <i class="fa fa-arrow-left text-light text-bold"></i>
                 </a>
             </div>
+            <div class="form-title">
+                <h5 class="text-light">trouser measurement</h5>
+            </div>
             <div class="logo-wrapper">
                 <img src="../assets/img/logo.png" alt="a1outlook">
             </div>
@@ -65,56 +68,66 @@
                     <img src="../assets/svg/blue-jeans.svg" alt="outlook trousers">
                 </div>
                 <div class="client-form">
-                    <div class="splide mt-5">
-                        <div class="splide__track">
-                            <div class="splide__list container">
-
-                                <!-- personal -->
-                                <div class="splide__slide mt-3">
-                                    <div class="form-group">
-                                        <input type="text" name="name" id="name" placeholder="Customer Name" alt="name" class="form-control">
+                    <form id="trouserForm" method="post">
+                        <div class="splide mt-5">
+                            <div class="splide__track">
+                                <div class="splide__list container">
+    
+                                    <!-- personal -->
+                                    <div class="splide__slide mt-3">
+                                        <div class="form-group">
+                                            <input type="text" name="name" id="name" placeholder="Customer Name" alt="name" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="text" name="phone" id="phone" placeholder="Customer Phone Number" alt="phone" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="email" name="email" id="email" placeholder="Customer Email" alt="email" class="form-control" required>
+                                        </div>
                                     </div>
-                                    <div class="form-group mt-3">
-                                        <input type="text" name="phone" id="phone" placeholder="Customer Phone Number" alt="phone" class="form-control">
+                                    <div class="splide__slide">
+                                        <div class="form-group mt-3">
+                                            <input type="number" name="waist" id="waist" placeholder="Waist size" alt="Waist" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="number" name="seat" id="seat" placeholder="Seat size" alt="Seat" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="number" name="hip" id="hip" placeholder="Hip size" alt="Hip" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="number" name="length" id="length" placeholder="Length" alt="Length" class="form-control" required>
+                                        </div>
                                     </div>
-                                    <div class="form-group mt-3">
-                                        <input type="email" name="email" id="email" placeholder="Customer Email" alt="email" class="form-control">
+                                    <div class="splide__slide">
+                                        <div class="form-group mt-3">
+                                            <input type="number" name="waist" id="waist" placeholder="Waist Size" alt="Waist" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                                <input type="number" name="thigh" id="thigh" placeholder="Thigh Size" alt="Thigh" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="number" name="inside_leg" id="inside_leg" placeholder="Inside Leg Size" alt="Inside leg" class="form-control" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="number" name="instep" id="instep" placeholder="Instep" alt="Instep" class="form-control" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="splide__slide">
-                                    <div class="form-group mt-3">
-                                        <input type="number" name="waist" id="waist" placeholder="Waist size" alt="Waist" class="form-control">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="number" name="seat" id="seat" placeholder="Seat size" alt="Seat" class="form-control">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="number" name="hip" id="hip" placeholder="Hip size" alt="Hip" class="form-control">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="number" name="length" id="length" placeholder="Length" alt="Length" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="splide__slide">
-                                    <div class="form-group mt-3">
-                                        <input type="number" name="waist" id="waist" placeholder="Waist Size" alt="Waist" class="form-control">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                            <input type="number" name="thigh" id="thigh" placeholder="Thigh Size" alt="Thigh" class="form-control">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="number" name="inside_leg" id="inside_leg" placeholder="Inside Leg Size" alt="Inside leg" class="form-control">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="number" name="instep" id="instep" placeholder="Instep" alt="Instep" class="form-control">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="submit" value="Save" class="btn btn-primary btn-block">
+                                    <div class="splide__slide">
+                                        <div class="form-group mt-3">
+                                            <textarea name="comment" id="comment" cols="5" rows="10" placeholder="Comments" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="submit" value="Save" class="btn btn-primary btn-block">
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="hidden" name="category" id="category" value="trouser">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -162,6 +175,7 @@
     <script type="text/javascript">
         $(document).ready(function (){
             $('input[placeholder]').placeholderLabel();
+            $('textarea[placeholder]').placeholderLabel();
         })
     </script>
 
