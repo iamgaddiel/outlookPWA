@@ -90,8 +90,7 @@ main{
 /* category */
 .category-items{
     background: var(--tuff-blue);
-    /* background: #fff; */
-    padding: 5px;
+    padding: 10px 5px;
     border: none;
     border-radius: 10px;
     box-shadow: 3px 5px 15px #eee;
@@ -103,6 +102,7 @@ main{
     background: #fff;
     padding: 10px;
     text-align: center;
+    margin: auto;
 }
 
 .cat-item-img img{
@@ -256,4 +256,40 @@ footer a:hover i{
     .selection-item-wrapper{
         min-width: 50vw;
     }
+}
+
+/* Client Details */
+.detail-wrapper{
+    margin-top: 5rem;
+}
+
+.detail-image{
+    width: 60px;
+    height: 60px;
+    background: var(--blue-jeans);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.detail-image img{
+    width: 100%;
+    height: auto;
+}
+
+.edit-btn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 40px;
+    z-index: 5;
+    left: 50%;
+    margin-left: -5px;
+    background: var(--blue-jeans);
 }

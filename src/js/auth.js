@@ -27,7 +27,7 @@ $(() => {
         if(formData.email != authDetails.email && formData.password != authDetails.password){
             window.alert('Email or Password incorrect, Check and try again');
         } else {
-            const key = generateKey(15);
+            const key = generateKey(32);
             window.sessionStorage.setItem('sessionKey', key);
             window.location.href = `src/pages/dashboard.html`;
         }

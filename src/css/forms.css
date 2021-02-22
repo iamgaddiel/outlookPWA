@@ -102,19 +102,12 @@
 .client-form input[type="text"],
 .client-form input[type="number"],
 .client-form input[type="email"]{
-    border: none;
     border-bottom: 1px solid #bbb;
     border-radius: 0;
 }
 
-.client-form input[type="text"]:focus,
+/* .client-form input[type="text"]:focus,
 .client-form input[type="number"]:focus,
 .client-form input[type="email"]:focus{
     outline: none;
-}
-
-.client-form input[type="text"]:focus label,
-.client-form input[type="number"]:focus,
-.client-form input[type="email"]:focus{
-    outline: none;
-}
+} */
