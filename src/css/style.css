@@ -30,6 +30,29 @@
     color: var(--tuff-blue) !important;
 }
 
+flex-input{
+    /* responsible for aligning icons and inputs horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon{
+    font-size: small;
+    color: black;
+    letter-spacing: 1px
+}
+
+.menu-icon i{
+    display: block;
+}
+
+.menu-icon:hover i{
+    color: var(--blue-jeans);
+}
+
+/* Globals end */
+
 a:hover{
     text-decoration: none !important;
 }
