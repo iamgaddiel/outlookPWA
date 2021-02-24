@@ -16,7 +16,7 @@
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet"> 
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">  -->
 
 
     <!-- Favicon -->
@@ -57,64 +57,8 @@
         <section class="recent container full-height">
             <div class="recent-wrapper">
                 <h3 class="py-4 mt-3 recent-heading" style="font-size: large;">Clients</h3>
-                <a href="./client-detail.html" data-id="1212">
-                    <div class="recent-item">
-                        <div class="recent-image">
-                            <img src="../assets/svg/trousers.svg" alt="">
-                        </div>
-                        <div class="recent-text">
-                            <h6 class="text-muted">John Doe</h6>
-                            <span class="text-muted">Lorem ipsum dolor sit.</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="recent-item">
-                        <div class="recent-image">
-                            <img src="../assets/svg/beach-shirt.svg" alt="">
-                        </div>
-                        <div class="recent-text">
-                            <h6 class="text-muted">John Doe</h6>
-                            <span class="text-muted">Lorem ipsum dolor sit.</span>
-                        </div>
-                    </div>
-                </a>
-                <div class="recent-item">
-                    <div class="recent-image">
-                        <img src="../assets/svg/tshirt.svg" alt="">
-                    </div>
-                    <div class="recent-text">
-                        <h6 class="text-muted">John Doe</h6>
-                        <span class="text-muted">Lorem ipsum dolor sit.</span>
-                    </div>
-                </div>
-                <div class="recent-item">
-                    <div class="recent-image">
-                        <img src="../assets/svg/tshirt.svg" alt="">
-                    </div>
-                    <div class="recent-text">
-                        <h6 class="text-muted">John Doe</h6>
-                        <span class="text-muted">Lorem ipsum dolor sit.</span>
-                    </div>
-                </div>
-                <div class="recent-item">
-                    <div class="recent-image">
-                        <img src="../assets/svg/tshirt.svg" alt="">
-                    </div>
-                    <div class="recent-text">
-                        <h6 class="text-muted">John Doe</h6>
-                        <span class="text-muted">Lorem ipsum dolor sit.</span>
-                    </div>
-                </div>
-                <div class="recent-item">
-                    <div class="recent-image">
-                        <img src="../assets/svg/tshirt.svg" alt="">
-                    </div>
-                    <div class="recent-text">
-                        <h6 class="text-muted">John Doe</h6>
-                        <span class="text-muted">Lorem ipsum dolor sit.</span>
-                    </div>
-                </div>
+
+                <div id="clientsList"></div>
             </div>
         </section>
     </main>
@@ -132,7 +76,7 @@
                     <a href="./dashboard.html"><i class="fa fa-home text-muted"></i></a>
                 </div>
                 <div class="col-3">
-                    <a href="./clents.html"><i class="fa fa-user text-muted"></i></a>
+                    <a href="./clents.html"><i class="fa fa-users text-muted"></i></a>
                 </div>
                 <div class="col-3">
                     <a href=""><i class="fa fa-home text-muted"></i></a>
@@ -148,10 +92,12 @@
 
     <!-- Third Party -->
     <script src="../../lib/js/jquery-3.4.1.min.js"></script>
+    <script src="../../lib/js/localbase.min.js"></script>
 
     <!-- Custom -->
     <script src="../js/app.js"></script>
     <script src="../js/auth.js"></script>
+    <script src="../js/forms.js"></script>
 
 </body>
 </html>
