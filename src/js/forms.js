@@ -54,8 +54,7 @@ $(() => {
                             break;
     
                         case "shirt":
-                            displayData 
-                            `
+                            displayData = `
                                 <a href="./client-detail.html" data-id="${data.id}">
                                     <div class="shadow d-flex justify-content-between align-items-center px-2">
                                         <div class="recent-item">
@@ -78,43 +77,55 @@ $(() => {
     
                         case "waistcoat":
                             displayData = `
-                            <a href="./client-detail.html" data-id="{data.id}">
-                                <div class="recent-item">
-                                    <div class="recent-image">
-                                        <img src="../assets/svg/trousers.svg" alt="">
+                                <a href="./client-detail.html" data-id="${data.id}">
+                                    <div class="shadow d-flex justify-content-between align-items-center px-2">
+                                        <div class="recent-item">
+                                            <div class="recent-image">
+                                                <img src="../assets/svg/waistcoat.svg" alt="">
+                                            </div>
+                                            <div class="recent-text">
+                                                <h6 class="text-muted">${data.name}</h6>
+                                                <span class="text-muted">${data.email}</span>
+                                            </div>
+                                        </div>
+                                        <div class="del-contact">
+                                            <i class="fa fa-times text-danger id="deleteBtn" data-id="${data.id}"></i>
+                                        </div>
                                     </div>
-                                    <div class="recent-text">
-                                        <h6 class="text-muted">{data.first_name}</h6>
-                                        <span class="text-muted">{data.timestamp}</span>
-                                    </div>
-                                </div>
-                            </a>`
+                                </a>
+                            `
                             clientList.innerHTML += displayData;
                             break;
     
                         case "suit":
                             displayMeasurement = `
-                            <a href="./client-detail.html" data-id="{data.id}">
-                                <div class="recent-item">
-                                    <div class="recent-image">
-                                        <img src="../assets/svg/trousers.svg" alt="">
+                                <a href="./client-detail.html" data-id="${data.id}">
+                                    <div class="shadow d-flex justify-content-between align-items-center px-2">
+                                        <div class="recent-item">
+                                            <div class="recent-image">
+                                                <img src="../assets/svg/trousers.svg" alt="">
+                                            </div>
+                                            <div class="recent-text">
+                                                <h6 class="text-muted">${data.name}</h6>
+                                                <span class="text-muted">${data.email}</span>
+                                            </div>
+                                        </div>
+                                        <div class="del-contact">
+                                            <i class="fa fa-times text-danger id="deleteBtn" data-id="${data.id}"></i>
+                                        </div>
                                     </div>
-                                    <div class="recent-text">
-                                        <h6 class="text-muted">{data.first_name}</h6>
-                                        <span class="text-muted">{data.timestamp}</span>
-                                    </div>
-                                </div>
-                            </a>`
+                                </a>
+                            `
                             clientList.innerHTML += displayData;
                             break;
     
                         default:
-                            displayMeasurement = `
-                            <p class="text-muted">
+                            displayData = `
+                            <p class="text-muted text-center">
                                 Opps ! 
                                 No client data could be found
                             </p>`
-                            clientList.innerHTML += (displayData);
+                            clientList.innerHTML += displayData;
                     }
                 }
 
@@ -123,17 +134,24 @@ $(() => {
         })
     }
 
-    $('#trouserForm').on('submit', (e) => {
-        e.preventDefault;
-        let formData = {};
-        $('#trouserForm').serializeArray().forEach( field => {
-            formData[field.name] = field.value;
-        })
-
-        addMeasurement('measurements', formData);
-    })
-
+    const getFormData = (event, formID) => {
+            event.preventDefault();
+            
+            let formData = {};
+            $(`#${formID}`).serializeArray().forEach(field => {
+                formData[field.name] = field.value;
+            })
+            
+            addMeasurement('measurements', formData);
+    }
 
     const clientList = document.getElementById('clientsList');
     if(!!clientList){ displayMeasurement('measurements')};
+
+    // Get form data
+    $('#trouserForm').on('submit', (event) => getFormData(event, 'trouserForm'));
+    $('#waistcoatForm').on('submit',(event) => getFormData(event, 'waistcoatForm'));
+    $('#shirtForm').on('submit',(event) => getFormData(event, 'shirtForm'));
+    $('#shirtForm').on('submit',(event) => getFormData(event, 'shirtForm'));
+
 })
