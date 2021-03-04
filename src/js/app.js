@@ -17,6 +17,11 @@ $(() => {
         })
     }
 
+
+    const viewClientDetail = (clientId) => {
+        console.log(clientId);
+    }
+
     const displayMeasurement = (collection) => {
 
         let clientList = document.getElementById('clientsList');
@@ -35,9 +40,9 @@ $(() => {
         
                             case "trouser":
                                 displayData = `
-                                    <a href="./client-detail.html" data-id="${data.id}">
+                                    <a href="./client-detail.html?id=${data.id}">
                                         <div class="shadow d-flex justify-content-between align-items-center px-2">
-                                            <div class="recent-item">
+                                            <div class="recent-item clientDetailBtn" data-id="${data.id}">
                                                 <div class="recent-image">
                                                     <img src="../assets/svg/trousers.svg" alt="">
                                                 </div>
@@ -47,7 +52,7 @@ $(() => {
                                                 </div>
                                             </div>
                                             <div class="del-contact">
-                                                <i class="fa fa-times text-danger id="deleteBtn" data-id="${data.id}"></i>
+                                                <i class="fa fa-times text-danger data-id="${data.id}"></i>
                                             </div>
                                         </div>
                                     </a>
@@ -57,11 +62,11 @@ $(() => {
         
                             case "shirt":
                                 displayData = `
-                                    <a href="./client-detail.html" data-id="${data.id}">
+                                <a href="./client-detail.html?id=${data.id}">
                                         <div class="shadow d-flex justify-content-between align-items-center px-2">
-                                            <div class="recent-item">
+                                            <div class="recent-item clientDetailBtn" data-id="${data.id}">
                                                 <div class="recent-image">
-                                                    <img src="../assets/svg/shirt.svg" alt="">
+                                                    <img src="../assets/svg/tshirt.svg" alt="">
                                                 </div>
                                                 <div class="recent-text">
                                                     <h6 class="text-muted">${data.name}</h6>
@@ -69,7 +74,7 @@ $(() => {
                                                 </div>
                                             </div>
                                             <div class="del-contact">
-                                                <i class="fa fa-times text-danger id="deleteBtn" data-id="${data.id}"></i>
+                                                <i class="fa fa-times text-danger data-id="${data.id}"></i>
                                             </div>
                                         </div>
                                     </a>
@@ -79,9 +84,9 @@ $(() => {
         
                             case "waistcoat":
                                 displayData = `
-                                    <a href="./client-detail.html" data-id="${data.id}">
+                                <a href="./client-detail.html?id=${data.id}">
                                         <div class="shadow d-flex justify-content-between align-items-center px-2">
-                                            <div class="recent-item">
+                                            <div class="recent-item clientDetailBtn" data-id="${data.id}">
                                                 <div class="recent-image">
                                                     <img src="../assets/svg/waistcoat.svg" alt="">
                                                 </div>
@@ -91,7 +96,7 @@ $(() => {
                                                 </div>
                                             </div>
                                             <div class="del-contact">
-                                                <i class="fa fa-times text-danger id="deleteBtn" data-id="${data.id}"></i>
+                                                <i class="fa fa-times text-danger data-id="${data.id}"></i>
                                             </div>
                                         </div>
                                     </a>
@@ -101,9 +106,9 @@ $(() => {
         
                             case "suite":
                                 displayData = `
-                                    <a href="./client-detail.html" data-id="${data.id}">
+                                <a href="./client-detail.html?id=${data.id}">
                                         <div class="shadow d-flex justify-content-between align-items-center px-2">
-                                            <div class="recent-item">
+                                            <div class="recent-item clientDetailBtn" data-id="${data.id}">
                                                 <div class="recent-image">
                                                     <img src="../assets/svg/suit.svg" alt="">
                                                 </div>
@@ -113,7 +118,7 @@ $(() => {
                                                 </div>
                                             </div>
                                             <div class="del-contact">
-                                                <i class="fa fa-times text-danger id="deleteBtn" data-id="${data.id}"></i>
+                                                <i class="fa fa-times text-danger data-id="${data.id}"></i>
                                             </div>
                                         </div>
                                     </a>
@@ -166,13 +171,13 @@ $(() => {
         let displayData = '';
         miniClientList.innerHTML = '';
 
-        db.collection(collection).orderBy('id', 'desc').limit(2).get()
+        db.collection(collection).orderBy('id', 'desc').limit(5).get()
         .then( measurements => {
             if ( measurements.length > 0){
 
                 measurements.forEach( data => {
                     
-                    if (!!miniClientList){
+                    // if (!!miniClientList){
     
                         switch(data.category){
         
@@ -222,7 +227,7 @@ $(() => {
                                 break;
         
                             case "suite":
-                                displayData = `
+                                let displayData = `
                                 <div class="recent-item">
                                     <div class="recent-image">
                                         <img src="../assets/svg/suite.svg" alt="">
@@ -244,7 +249,7 @@ $(() => {
                                 </p>`
                                 miniClientList.innerHTML += displayData;
                         }
-                    }
+                    // }
     
                     
                 })
@@ -265,11 +270,59 @@ $(() => {
         })
     }
 
+    const getMeasurementDetail = () => {
+        let categoryImage = document.getElementById('categoryImage')
+        let url = window.location.href;
+        let userIdIndex = window.location.href.indexOf('id') + 3;
+        let userId = url.substring(userIdIndex);
+
+        console.log(userId);
+
+        db.collection('measurements').doc({id: +userId}).get()
+        .then( userDetail => {
+            // change client name on status bar
+            document.getElementById('clientName').innerHTML = `<h5 class="text-light">${userDetail.name}</h5>`
+
+            console.log(userDetail);
+            switch (userDetail.category) {
+                case "trouser":
+                    categoryImage.innerHTML = `<img src="../assets/svg/trousers.svg" alt="">`;
+                    break;
+                case "suite":
+                    categoryImage.innerHTML = `<img src="../assets/svg/suit.svg" alt="">`;
+                    break;
+                case "shirt":
+                    categoryImage.innerHTML = `<img src="../assets/svg/tshirt.svg" alt="">`;
+                    break;
+                case "waistcoat":
+                    categoryImage.innerHTML = `<img src="../assets/svg/waistcoat.svg" alt="">`;
+                    break;
+            }
+
+            for (const detail in userDetail){
+                let displayDetail = `
+                <tr>
+                    <td><b>${detail}</b></td>
+                    <td>${userDetail[detail]}</td>
+                </tr>
+                `
+
+                clientDetail.innerHTML += displayDetail;
+            }
+        })
+        .catch( err => console.log('error getting user', err))
+
+    }
+
     const clientList = document.getElementById('clientsList');
     const miniClientList = document.getElementById('miniClientList');
+    let clientDetailBtns = document.getElementsByClassName('clientDetailBtn');
+    let clientDetail = document.getElementById('clientDetail');
 
-    if(!!clientList) displayMeasurement('measurements');
+    if (!!clientList) displayMeasurement('measurements');
     if (!!miniClientList) displayLimitedMeasurement('measurements');
+    if (!!clientDetailBtns) console.log('Working');
+    if (!!clientDetail) getMeasurementDetail();
 
     // Get form data
     $('#trouserForm').on('submit', (event) => getFormData(event, 'trouserForm'));

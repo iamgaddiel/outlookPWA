@@ -64,8 +64,18 @@ a:hover{
     border-radius: 5px;
     margin-top: 10px;
     overflow: hidden;
+    position: relative;
 }
 
+.clientDetailBtn:hover,
+i.fa.fa-times:hover{
+    cursor: pointer;
+}
+a.deleteBtn{
+    color: green !important;
+    z-index: 5;
+    position: absolute;
+}
 /* globals end */
 
 body{
@@ -152,12 +162,6 @@ main{
     margin-top: 2rem;
     height: 45vh;
     overflow-y: auto;
-}
-
-#deleteBtn{
-    color: green !important;
-    z-index: 5;
-    display: none;
 }
 
 .full-height{
@@ -306,6 +310,7 @@ footer a:hover i{
     background: var(--blue-jeans);
     border-radius: 50%;
     padding: 10px;
+    margin: auto;
 }
 
 .detail-image img{
