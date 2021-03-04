@@ -1,0 +1,125 @@
+*{
+    --primary-color: #5390D9;
+    --purple: #7400B8;
+    --french-violet: #6930C3;
+    --state-blue: #5E60CE;
+    --tuff-blue: #5390D9;
+    --blue-jeans: #4EA8DE;
+    --vivid-sky-blue: #48BFE3;
+    --sky-blue-crayola: #56CFE1;
+    --medium-turquoise: #64DFDF;
+    --turquoise: #72EFDD;
+    --aquamarine: #80FFDB;
+}
+
+/* Globals */
+.flex-input{
+    /* responsible for aligning icons and inputs horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon{
+    font-size: small;
+    color: black;
+    letter-spacing: 1px
+}
+
+.menu-icon i{
+    display: block;
+}
+
+.menu-icon:hover i{
+    color: var(--blue-jeans);
+}
+
+/* Login Form */
+.login-form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.login-form-wrapper .form-wrapper{
+    width: 80%;
+    padding: 30px 10px;
+}
+
+.login-form-wrapper .login-image{
+    max-width: 19rem;
+    margin: 0px auto;   
+    overflow: hidden;
+}
+
+.login-form-wrapper .login-image img{
+    width: 100%;
+    height: auto;
+}
+
+.login-form-wrapper form{
+    margin-top: 50px;
+}
+
+#login input[type="email"],
+#login input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    width: 100%;
+    padding: 5px;
+}
+
+#login input[type="submit"]{
+    width: 100%;
+    background: radial-gradient(circle, var(--state-blue), var(--tuff-blue), var(--state-blue));
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: .5s;
+}
+
+#login input[type="submit"]:hover{
+    background: radial-gradient(circle, var(--state-blue) 50%, var(--tuff-blue) , var(--state-blue));
+}
+
+
+/* measurement form */
+.form-wrapper{
+    margin-top: 5rem;
+}
+
+.form-logo{
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50%;
+    border: none;
+    padding: 10px;
+    background: var(--tuff-blue);
+}
+
+.form-logo img{
+    width: 100%;
+    height: auto;
+}
+
+.client-form textarea{
+    max-height: 90px;
+}
+
+.client-form input[type="text"],
+.client-form input[type="number"],
+.client-form input[type="email"]{
+    border-bottom: 1px solid #bbb;
+    border-radius: 0;
+}
+
+/* .client-form input[type="text"]:focus,
+.client-form input[type="number"]:focus,
+.client-form input[type="email"]:focus{
+    outline: none;
+} */
