@@ -1,85 +1,81 @@
 
-let shellCache = "shell-cache-v1"
-let cachedFiles = [
-    // pages
+const staticCacheName = "shell-cache-v1"
+const dynamicCacheName = 'dynamic-cache-v1';
+const dynamicCache = [];
+
+const cachedFiles = [
     '/',
     '/index.html',
-    '/src/pages/category.html',
-    '/src/pages/clents.html',
-    '/src/pages/client_edit.html',
-    '/src/pages/client_detail.html',
+    '/manifest.json',
     '/src/pages/dashboard.html',
-    '/src/pages/shirt_form.html',
-    '/src/pages/suite_form.html',
+    '/src/pages/category.html',
     '/src/pages/trouser_form.html',
     '/src/pages/waistcoat_form.html',
-    // js
-    '/src/js/app.js',
-    '/src/js/auth.js',
-    '/src/js/notification.js',
-    '/src/js/render.js',
-    // css
-    '/src/css/forms.css',
+    '/src/pages/suite_form.html',
+    '/src/pages/shirt_from.html',
+    '/src/pages/client-detail.html',
+    'src/pages/clents.html',
     '/src/css/style.css',
-    // img
-    '/src/assets/img/A1 black.png',
-    '/src/assets/img/A1 white.png',
+    '/src/css/forms.css',
+    '/src/js/auth.js',
+    '/src/js/app.js',
+    '/src/js/register.js',
+    '/src/assets/img/logo.png',
+    '/src/assets/svg/suit.svg',
+    '/src/assets/svg/tshirt.svg',
+    '/src/assets/svg/waistcoat.svg',
+    '/src/assets/svg/trousers.svg',
+    '/src/assets/svg/blue-jeans.svg',
+    '/src/assets/svg/2161210.svg',
     '/src/assets/img/null.png',
-    '/src/assets/img/shirt-fashion-pngrepo-com.png',
-    '/src/assets/img/suit.png',
-    // favicons
-    '/src/assets/img/shirt-fashion-pngrepo-com.png',
-    "/src/assets/img/favicons/apple-icon-57x57.png",
-    "/src/assets/img/favicons/apple-icon-60x60.png",
-    "/src/assets/img/favicons/apple-icon-72x72.png",
-    "/src/assets/img/favicons/apple-icon-76x76.png",
-    "/src/assets/img/favicons/apple-icon-114x114.png",
-    "/src/assets/img/favicons/apple-icon-120x120.png",
-    "/src/assets/img/favicons/apple-icon-144x144.png",
-    "/src/assets/img/favicons/apple-icon-152x152.png",
-    "/src/assets/img/favicons/apple-icon-180x180.png",
-    "/src/assets/img/favicons/android-icon-192x192.png",
-    "/src/assets/img/favicons/favicon-32x32.png",
-    "/src/assets/img/favicons/favicon-96x96.png",
-    "/src/assets/img/favicons/favicon-16x16.png",
-    "/src/assets/img/favicons/favicon.ico",
-    // 3rd party css
-    "/lib/css/aos.css",
-    "/lib/css/bootstrap.min.css",
-    "/lib/css/splide.min.css",
-    "/lib/css/fontawesome-free-5.12.0-web/css/all.css",
-    //3rd party js
-    "/lib/js/aos.js",
-    "bootstrap.min.js",
-    "jquery-3.4.1.min.js",
-    "jquery.placeholder.label.min.js",
-    "jquery.placeholder.label.min.js",
-    "splidem.min.js",
+    '/src/assets/img/favicons/favicon.ico',
+    '/src/assets/img/favicons/favicon-32x32.png',
+    '/src/assets/img/favicons/android-icon-144x144.png',
+    '/lib/css/aos.css',
+    '/lib/css/splide.min.css',
+    '/lib/css/bootstrap.min.css',
+    '/lib/js/jquery-3.4.1.min.js',
+    '/lib/js/splide.min.js',
+    '/lib/js/jquery.placeholder.label.min.js',
+    '/lib/js/localbase.min.js',
+    '/lib/fontawesome/css/all.css',
+    '/lib/fontawesome/webfonts/fa-solid-900.woff2',
+    '/lib/fontawesome/webfonts/fa-solid-900.ttf',
+    '/lib/fontawesome/webfonts/fa-solid-900.woff',
+    '/lib//fontawesome/webfonts/fa-brands-400.woff2',
 
+    
+    // 'https://use.fontawesome.com/4ebebce28d.js',
+    // 'https://use.fontawesome.com/4ebebce28d.css',
+    // 'https://use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css',
+    // 'https://use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff2',
+
+
+    // 'https://use.fontawesome.com/4ebebce28d.js',
 ]
 
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(shellCache)
-        .then( (cache) => {
-            console.log('caching files ');
-            return cache.addAll(cachedFiles);
-        })
+        caches.open(staticCacheName)
+        .then( cache => cache.addAll(cachedFiles))
+        .then( self.skipWaiting())
+        .catch( err => console.error('error caching files', err))
     )
     console.log('installed')
 })
 
-self.addEventListener('active', (event) => {
+self.addEventListener('active', event => {
     console.log('active')
 })
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
-        .then(response => {
-            if (response) return response;
-            return fetch(event.request)
+        .then( cacheRes => {
+            return cacheRes || fetch(event.request)
+            .then( fetchRes => console.log(fetchRes.url))
         })
     )
+    // console.log('fetching', event.request);
 })

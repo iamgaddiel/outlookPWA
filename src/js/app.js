@@ -321,7 +321,6 @@ $(() => {
 
     if (!!clientList) displayMeasurement('measurements');
     if (!!miniClientList) displayLimitedMeasurement('measurements');
-    if (!!clientDetailBtns) console.log('Working');
     if (!!clientDetail) getMeasurementDetail();
 
     // Get form data
