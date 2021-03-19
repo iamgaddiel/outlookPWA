@@ -1,5 +1,5 @@
 
-const staticCacheName = "shell-cache-v1"
+const staticCacheName = "shell-cache-v2"
 const dynamicCacheName = 'dynamic-cache-v1';
 const dynamicCache = [];
 
@@ -9,6 +9,9 @@ const cachedFiles = [
     '/manifest.json',
     '/src/pages/dashboard.html',
     '/src/pages/category.html',
+    '/src/pages/notes.html',
+    '/src/pages/note_form.html',
+    '/src/pages/note_edit.html',
     '/src/pages/trouser_form.html',
     '/src/pages/waistcoat_form.html',
     '/src/pages/suite_form.html',
@@ -31,6 +34,8 @@ const cachedFiles = [
     '/src/assets/img/favicons/favicon.ico',
     '/src/assets/img/favicons/favicon-32x32.png',
     '/src/assets/img/favicons/android-icon-144x144.png',
+    '/src/assets/img/favicons/favicon-96x96.png',
+    '/src/assets/img/favicons/favicon-16x16.png',
     '/lib/css/aos.css',
     '/lib/css/splide.min.css',
     '/lib/css/bootstrap.min.css',
@@ -59,14 +64,23 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(staticCacheName)
         .then( cache => cache.addAll(cachedFiles))
-        .then( self.skipWaiting())
+        .then( self.skipWaiting())//
         .catch( err => console.error('error caching files', err))
     )
     console.log('installed')
 })
 
 self.addEventListener('active', event => {
-    console.log('active')
+    event.waitUntil(
+        caches.keys()
+        .then( keys => {
+            console.log(keys); //
+            return Promise.all(
+                keys.filter( key !== staticCacheName ) 
+                .map( key => caches.delete(key))
+            )
+        })
+    )
 })
 
 self.addEventListener('fetch', event => {
@@ -74,7 +88,7 @@ self.addEventListener('fetch', event => {
         caches.match(event.request)
         .then( cacheRes => {
             return cacheRes || fetch(event.request)
-            .then( fetchRes => console.log(fetchRes.url))
+            // .then( fetchRes => console.log(fetchRes.url))
         })
     )
     // console.log('fetching', event.request);

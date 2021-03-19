@@ -1,3 +1,4 @@
+<script src="../../lib/js/jquery-3.4.1.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +9,10 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forms.css">
 
     <!-- Third Party -->
-    <link rel="stylesheet" href="../../lib/css/aos.css">
+    <link rel="stylesheet" href="../../lib/css/splide.min.css">
     <link rel="stylesheet" href="../../lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../lib/fontawesome/css/all.css">
 
@@ -27,6 +29,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../assets/img/favicons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
@@ -43,53 +46,96 @@
     <header>
         <section class="header-wrapper d-flex justify-content-between px-4">
             <div class="bck-btn">
-                <a href="./clents.html">
+                <a href="./notes.html">
                     <i class="fa fa-arrow-left text-light text-bold"></i>
                 </a>
             </div>
-            <div class="client-detial" id="clientName">
-                <h5 class="text-light">John Doe</h5>
+            <div class="form-title">
+                <h5 class="text-light"> Crate Note</h5>
             </div>
             <div class="logo-wrapper">
                 <img src="../assets/img/logo.png" alt="a1outlook">
             </div>
         </section>
     </header>
-
-    <!-- main -->
     <main>
-        <section class="detail-wrapper container">
-            <div class="detial-inner">
-                <div class="detail-image" id="categoryImage"></div>
-
-                <div class="detail-content mt-5">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <tbody id="clientDetail"></tbody>
-                        </table>
-                    </div>
+        <section class="form-wrapper">
+            <div class="form-content container">
+                
+                <div class="form-logo">
+                    <i class="fa fa-sticky-note fa-4x text-light"></i>
+                </div>
+                <div class="client-form mt-5">
+                    <form id="noteForm">
+                        <div class="form-group">
+                            <input type="text" name="title" id="title" placeholder="Title" alt="title" class="form-control" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea name="note" id="note" cols="5" rows="7" placeholder="Note" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="submit" value="Save" class="btn btn-primary btn-block">
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <div class="footer-wrapper">
-        <a href="./client_edit.html" id="editBtn" data-id="">
-            <div class="edit-btn">
-                <i class="fa fa-pen-nib"></i>
+    <!-- footer -->
+    <footer>
+        <section class="footer-wrapper">
+            <!-- <div class="footer-add-btn">
+            <a href="./add_note.html"><i class="fa fa-plus"></i></a>
+            </div> -->
+
+            <div class="row justify-content-center">
+            <div class="col-3">
+                <a href="./dashboard.html" class="menu-icon">
+                <i class="fa fa-home text-dark"></i>
+                <small>Home</small>
+                </a>
             </div>
-        </a>
-    </div>
+            <div class="col-3">
+                <a href="./clents.html" class="menu-icon">
+                <i class="fa fa-users text-muted"></i>
+                <small>Clients</small>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="./notes.html" class="menu-icon">
+                <i class="fas fa-sticky-note text-muted"></i>
+                <small>Notes</small>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="" class="menu-icon" id="signOutBtn">
+                <i class="fa fa-sign-out-alt text-muted"></i>
+                <small>logout</small>
+                </a>
+            </div>
+            </div>
+        </section>
+        </footer>
     <!-- ================================ Scripts ============================== -->
 
     <!-- Third Party -->
     <script src="../../lib/js/jquery-3.4.1.min.js"></script>
     <script src="../../lib/js/localbase.min.js"></script>
+    <script src="../../lib/js/splide.min.js"></script>
+    <script src="../../lib/js/jquery.placeholder.label.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $('input[placeholder]').placeholderLabel();
+            $('textarea[placeholder]').placeholderLabel();
+            
+        })
+    </script>
 
     <!-- Custom -->
     <script src="../js/app.js"></script>
     <script src="../js/register.js"></script>
     <script src="../js/auth.js"></script>
-    
+
 </body>
 </html>

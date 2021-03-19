@@ -1,0 +1,133 @@
+/lib/css/aos.css	basic	text/css; charset=UTF-8	26,053	05/03/2021, 04:18:16	
+/lib/css/bootstrap.min.css	
+/lib/css/splide.min.css	
+/lib/fontawesome-free-5.12.0-web/css/all.css
+/lib/fontawesome-free-5.12.0-web/webfonts/fa-solid-900.ttf	
+/lib/fontawesome-free-5.12.0-web/webfonts/fa-solid-900.woff	
+/lib/fontawesome-free-5.12.0-web/webfonts/fa-solid-900.woff2
+/lib/js/jquery-3.4.1.min.js	
+/lib/js/jquery.placeholder.label.min.js	
+/lib/js/localbase.min.js	
+/lib/js/splide.min.js	
+/manifest.json	
+/src/assets/img/favicons/android-icon-144x144.png	
+/src/assets/img/favicons/android-icon-192x192.png	
+/src/assets/img/favicons/favicon-16x16.png
+/src/assets/img/favicons/favicon-32x32.png
+/src/assets/img/favicons/favicon-96x96.png	
+/src/assets/img/favicons/favicon.ico17	
+/src/assets/img/logo.png	
+/src/assets/svg/2161210.svg
+/src/assets/svg/blue-jeans.svg
+/src/assets/svg/suit.svg
+/src/assets/svg/trousers.svg
+/src/assets/svg/tshirt.svg 
+/src/assets/svg/waistcoat.svg
+/src/css/forms.css
+/src/css/style.css
+/src/js/app.js	
+/src/js/auth.js
+/src/js/register.js	
+/src/pages/category.html	
+/src/pages/clents.html	
+/src/pages/dashboard.html	
+/src/pages/trouser_form.html	
+/css2?family=Montserrat:wght@100&display=swap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    '/',
+    '/index.html',
+    '/manifest.json',
+    '/src/pages/category.html',
+    '/src/pages/clents.html',
+    '/src/pages/client_edit.html',
+    '/src/pages/client-detail.html',
+    '/src/pages/dashboard.html',
+    '/src/pages/shirt_form.html',
+    '/src/pages/suite_form.html',
+    '/src/pages/trouser_form.html',
+    '/src/pages/waistcoat_form.html',
+    '/src/js/app.js',
+    '/src/js/auth.js',
+    '/src/js/notification.js',
+    '/src/js/render.js',
+    '/src/js/register.js',
+    '/src/css/forms.css',
+    '/src/css/style.css',
+    '/src/assets/img/A1 black.png',
+    '/src/assets/img/A1 white.png',
+    '/src/assets/img/null.png',
+    '/src/assets/img/shirt-fashion-pngrepo-com.png',
+    '/src/assets/img/suit.png',
+    '/src/assets/svg/tshirt.svg',
+    '/src/assets/img/logo.png',
+    '/src/assets/svg/trousers.svg',
+    '/src/assets/svg/suit.svg',
+    '/src/assets/svg/waistcoat.svg',
+    '/src/assets/img/favicons/favicon.ico',
+    '/src/assets/img/favicons/android-icon-144x144.png',
+    '/src/assets/img/favicons/favicon-32x32.png',
+    '/src/assets/img/favicons/favicon-32x32.png',
+    "/src/assets/img/favicons/apple-icon-57x57.png",
+    "/src/assets/img/favicons/apple-icon-60x60.png",
+    "/src/assets/img/favicons/apple-icon-72x72.png",
+    "/src/assets/img/favicons/apple-icon-76x76.png",
+    "/src/assets/img/favicons/apple-icon-114x114.png",
+    "/src/assets/img/favicons/apple-icon-120x120.png",
+    "/src/assets/img/favicons/apple-icon-144x144.png",
+    "/src/assets/img/favicons/apple-icon-152x152.png",
+    "/src/assets/img/favicons/apple-icon-180x180.png",
+    "/src/assets/img/favicons/android-icon-192x192.png",
+    "/src/assets/img/favicons/favicon-32x32.png",
+    "/src/assets/img/favicons/favicon-96x96.png",
+    "/src/assets/img/favicons/favicon-16x16.png",
+    "/src/assets/img/favicons/favicon.ico",
+    '/src/assets/img/favicons/android-icon-144x144.png',
+    "/lib/css/aos.css",
+    "/lib/css/bootstrap.min.css",
+    "/lib/css/splide.min.css",
+    '/lib/fontawesome-free-5.12.0-web/css/all.css',
+    "/lib/js/aos.js",
+    "/lib/js/bootstrap.min.js",
+    "/lib/js/jquery-3.4.1.min.js",
+    "/lib/js/jquery.placeholder.label.min.js",
+    "/lib/js/splide.min.js",
