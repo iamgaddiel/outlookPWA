@@ -1,5 +1,5 @@
 
-const staticCacheName = "shell-cache-v2"
+const staticCacheName = "shell-cache-v13";
 const dynamicCacheName = 'dynamic-cache-v1';
 const dynamicCache = [];
 

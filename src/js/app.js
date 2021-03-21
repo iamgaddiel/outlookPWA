@@ -36,15 +36,6 @@ $(() => {
             })
     }
 
-    const deleteItem = (event, collection, sessionVar, successPage) => {
-        const itemId = +sessionStorage.getItem(`${sessionVar}`);
-        db.collection(collection).doc({
-                'id': itemId
-            }).delete()
-            .then(() => window.location.href = `/src/pages/${successPage}.html`)
-            .err(err => console.error('Error deleting item', err))
-    }
-
     const listMeasurement = (collection) => {
 
         let clientList = document.getElementById('clientsList');
@@ -63,9 +54,9 @@ $(() => {
 
                                 case "trouser":
                                     displayData = `
+                                    <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
                                     <a href="../pages/client-detail.html" 
                                         onclick="(function getId(){ sessionStorage.setItem('clientId', '${data.id}');  })()" >
-                                        <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
                                             <div class="recent-item" data-id="${data.id}">
                                                 <div class="recent-image">
                                                     <img src="../assets/svg/trousers.svg" alt="">
@@ -75,22 +66,24 @@ $(() => {
                                                     <span class="text-muted">${data.email}</span>
                                                 </div>
                                             </div>
-                                            <!-- 
-                                            <div class="del-contact">
-                                                <i class="fa fa-times text-danger data-id="${data.id}"></i>
-                                            </div>
-                                            -->
-                                        </div>
-                                    </a>
+                                            </a>
+                                            <button 
+                                            class="text-danger delBtn" 
+                                            onclick="((event) => { sessionStorage.setItem('clientId', '${data.id}');  deleteItemBtn('measurements');})()">
+                                                <div class="del-contact">
+                                                    <i class="fa fa-times text-danger data-id="${data.id}"></i>
+                                                </div>
+                                            </button>
+                                    </div>
                                 `
                                     clientList.innerHTML += displayData;
                                     break;
 
                                 case "shirt":
                                     displayData = `
-                                    <a href="../pages/client-detail.html" 
-                                    onclick="(function getId(){ sessionStorage.setItem('clientId', '${data.id}');  })()" >
-                                        <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
+                                    <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
+                                        <a href="../pages/client-detail.html" 
+                                        onclick="(function getId(){ sessionStorage.setItem('clientId', '${data.id}');  })()" >
                                             <div class="recent-item" data-id="${data.id}">
                                                 <div class="recent-image">
                                                     <img src="../assets/svg/tshirt.svg" alt="">
@@ -100,22 +93,23 @@ $(() => {
                                                     <span class="text-muted">${data.email}</span>
                                                 </div>
                                             </div>
-                                            <!-- 
-                                            <div class="del-contact">
+                                        </a>
+
+                                        <button
+                                            class="text-danger delBtn" 
+                                            onclick="((event) => { sessionStorage.setItem('clientId', '${data.id}');  deleteItemBtn('measurements');})()">
                                                 <i class="fa fa-times text-danger data-id="${data.id}"></i>
-                                            </div>
-                                            -->
-                                        </div>
-                                    </a>
+                                        </button>
+                                    </div>
                                 `
                                     clientList.innerHTML += displayData;
                                     break;
 
                                 case "waistcoat":
                                     displayData = `
+                                    <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
                                     <a href="../pages/client-detail.html" 
                                     onclick="(function getId(){ sessionStorage.setItem('clientId', '${data.id}');  })()" >
-                                        <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
                                             <div class="recent-item" data-id="${data.id}">
                                                 <div class="recent-image">
                                                     <img src="../assets/svg/waistcoat.svg" alt="">
@@ -125,22 +119,22 @@ $(() => {
                                                     <span class="text-muted">${data.email}</span>
                                                 </div>
                                             </div>
-                                            <!-- 
-                                            <div class="del-contact">
+                                        </a>
+                                        <button
+                                            class="text-danger delBtn" 
+                                            onclick="((event) => { sessionStorage.setItem('clientId', '${data.id}');  deleteItemBtn('measurements');})()">
                                                 <i class="fa fa-times text-danger data-id="${data.id}"></i>
-                                            </div>
-                                            -->
-                                        </div>
-                                    </a>
+                                        </button>
+                                    </div>
                                 `
                                     clientList.innerHTML += displayData;
                                     break;
 
                                 case "suite":
                                     displayData = `
-                                    <a href="../pages/client-detail.html" 
-                                    onclick="(function getId(){ sessionStorage.setItem('clientId', '${data.id}');  })()" >
-                                        <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
+                                    <div class="shadow d-flex justify-content-between align-items-center px-2 clientDetailCard">
+                                        <a href="../pages/client-detail.html" 
+                                        onclick="(function getId(){ sessionStorage.setItem('clientId', '${data.id}');  })()" >
                                             <div class="recent-item" data-id="${data.id}">
                                                 <div class="recent-image">
                                                     <img src="../assets/svg/suit.svg" alt="">
@@ -150,13 +144,13 @@ $(() => {
                                                     <span class="text-muted">${data.email}</span>
                                                 </div>
                                             </div>
-                                            <!-- 
-                                            <div class="del-contact">
+                                            </a>
+                                        <button
+                                            class="text-danger delBtn" 
+                                            onclick="((event) => { sessionStorage.setItem('clientId', '${data.id}');  deleteItemBtn('measurements');})()">
                                                 <i class="fa fa-times text-danger data-id="${data.id}"></i>
-                                            </div>
-                                            -->
-                                        </div>
-                                    </a>
+                                        </button>
+                                    </div>
                                 `
                                     clientList.innerHTML += displayData;
                                     break;
@@ -572,13 +566,11 @@ $(() => {
                             >
                                 <strong class="text-dark">${note.title}</strong>
                                 <!-- delete btn -->
-                                <a
-                                href=""
-                                class="text-danger"
-                                onclick="(event) => {event.preventDefault(); sessionStorage.setItem('noteId', '${note.id}')}"
-                                >
+                                <button 
+                                class="text-danger delBtn" 
+                                onclick="((event) => { sessionStorage.setItem('noteId', '${note.id}');  deleteItemBtn('notes');})()">
                                 <i class="fas fa-trash"></i>
-                                </a>
+                                </button>
                             </div>
                             </div>
                             <div class="card-body note-body">
@@ -602,8 +594,8 @@ $(() => {
                         <i class="fa fa-frown fa-3x text-muted"></i>
                     </div>
                     <div class="mt-5">
-                        <p class="text-center"> You don't seem to have any note save</p>
-                        <p class="text-center"> Here's and idea, click on the plus button below</p>
+                        <p class="text-center"> You don't seem to have any note saved!</p>
+                        <p class="text-center"> Here's an idea, click on the plus button below</p>
                         
                     </div>
                 </div>
@@ -655,10 +647,6 @@ $(() => {
             .catch(err => console.error('Unable to fetch note', err));
     }
 
-    const testDelet = (event) => {
-
-    }
-
     // Get Measurements
     const clientList = document.getElementById('clientsList');
     const miniClientList = document.getElementById('miniClientList');
@@ -678,10 +666,10 @@ $(() => {
 
 
     // Get form data
-    $('#trouserForm').on('submit', event => createItem(event, 'measurements', 'trouserForm', 'clent', 'Client Measurement'));
-    $('#waistcoatForm').on('submit', event => createItem(event, 'measurements', 'waistcoatForm', 'clent', 'Client Measurement'));
-    $('#suiteForm').on('submit', event => createItem(event, 'measurements', 'suiteForm', 'clent', 'Client Measurement'));
-    $('#shirtForm').on('submit', event => createItem(event, 'measurements', 'shirtForm', 'clent', 'Client Measurement'));
+    $('#trouserForm').on('submit', event => createItem(event, 'measurements', 'trouserForm', 'clents', 'Client Measurement'));
+    $('#waistcoatForm').on('submit', event => createItem(event, 'measurements', 'waistcoatForm', 'clents', 'Client Measurement'));
+    $('#suiteForm').on('submit', event => createItem(event, 'measurements', 'suiteForm', 'clents', 'Client Measurement'));
+    $('#shirtForm').on('submit', event => createItem(event, 'measurements', 'shirtForm', 'clents', 'Client Measurement'));
     $('#clientEditFormPackage').on('submit', event => updateItem(event, 'measurements', 'clientEditFormPackage', 'client-detail', 'Client', 'clientId'));
     $('#noteForm').on('submit', event => createItem(event, 'notes', 'noteForm', 'notes', 'Note'));
     $('#noteEditForm').on('submit', event => updateItem(event, 'notes', 'noteEditForm', 'note_detail', 'Note', 'noteId'));

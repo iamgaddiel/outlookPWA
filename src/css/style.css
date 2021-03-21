@@ -366,3 +366,13 @@ footer a:hover i{
     margin: auto;
     overflow: hidden;
 }
+
+.delBtn{
+    background: transparent;
+    border: none;
+}
+
+.delBtn:active{
+    outline: none;
+    border: none;
+}

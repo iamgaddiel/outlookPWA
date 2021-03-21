@@ -111,6 +111,15 @@
     <script src="../js/app.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/register.js"></script>
+    <script>
+        const db = new Localbase('clientDB');
+
+        function deleteItemBtn(collection){
+            const noteId = +sessionStorage.getItem('clientId');
+            db.collection(collection).doc({'id': noteId}).delete();
+            window.location.reload()
+        }
+    </script>
 
 </body>
 </html>
